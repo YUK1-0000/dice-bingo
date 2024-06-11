@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dice" load_steps=3 format=3 uid="uid://cbs41pntxj248"]
+
+[ext_resource type="Script" path="res://resources/dice.gd" id="1_usvx5"]
+[ext_resource type="Texture2D" uid="uid://pxw12c08sqmp" path="res://asset/DicePack/4.png" id="2_lcgqj"]
+
+[resource]
+script = ExtResource("1_usvx5")
+num = 4
+texture = ExtResource("2_lcgqj")

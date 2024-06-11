@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhjth00cx2e1w"]
+
+[ext_resource type="Script" path="res://dice_slot_ui.gd" id="1_86btl"]
+
+[node name="DiceSlotUI" type="CenterContainer"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_86btl")
+
+[node name="SetButton" type="Button" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="RemoveButton" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+button_mask = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+
+[connection signal="pressed" from="SetButton" to="." method="_on_set_button_pressed"]
+[connection signal="pressed" from="RemoveButton" to="." method="_on_remove_button_pressed"]
