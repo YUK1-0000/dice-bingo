@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://ya5pwv0pqqak"]
+[gd_scene load_steps=2 format=3 uid="uid://cmfnl1tf1wgtu"]
 
-[node name="Dice" type="Node2D"]
+[ext_resource type="Script" path="res://dice.gd" id="1_ooju2"]
+
+[node name="Dice" type="CenterContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ooju2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

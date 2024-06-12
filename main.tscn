@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl1027meapu0s"]
+
+[ext_resource type="PackedScene" uid="uid://c3jtvnpsjymku" path="res://board.tscn" id="1_w7fj0"]
+[ext_resource type="PackedScene" uid="uid://dhjth00cx2e1w" path="res://dice_slot.tscn" id="2_xlyyw"]
+
+[node name="Main" type="Node"]
+
+[node name="Board" parent="." instance=ExtResource("1_w7fj0")]
+
+[node name="CurrentDiceSlot" parent="." instance=ExtResource("2_xlyyw")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0

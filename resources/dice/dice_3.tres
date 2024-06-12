@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Dice" load_steps=3 format=3 uid="uid://calfaph6kogdv"]
 
-[ext_resource type="Script" path="res://resources/dice.gd" id="1_3l0es"]
+[ext_resource type="Script" path="res://dice.gd" id="1_3l0es"]
 [ext_resource type="Texture2D" uid="uid://d24a1refw37ph" path="res://asset/DicePack/3.png" id="2_wkesm"]
 
 [resource]

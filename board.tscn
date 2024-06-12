@@ -1,13 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3jtvnpsjymku"]
+[gd_scene load_steps=2 format=3 uid="uid://c3jtvnpsjymku"]
 
-[ext_resource type="Script" path="res://board_ui.gd" id="1_uweq6"]
-[ext_resource type="Script" path="res://resources/board.gd" id="2_upcvg"]
+[ext_resource type="Script" path="res://board.gd" id="1_uweq6"]
 
-[sub_resource type="Resource" id="Resource_v8btu"]
-script = ExtResource("2_upcvg")
-slots = Array[Resource("res://resources/dice_slot.gd")]([])
-
-[node name="BoardUI" type="Control"]
+[node name="Board" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uweq6")
-board = SubResource("Resource_v8btu")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
