@@ -36,7 +36,8 @@ func remove_dice() -> void:
 
 
 func _on_set_button_pressed() -> void:
-	set_dice(Game.current_dice)
+	Events.slot_pressed.emit(self)
+	#set_dice(Game.current_dice)
 
 
 func _on_remove_button_pressed() -> void:
