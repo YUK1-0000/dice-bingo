@@ -9,7 +9,7 @@ class_name DiceSlot extends CenterContainer
 func update() -> void:
 	print("update")
 	# diceのテクスチャの反映とボタンの切り替え
-	if dice:
+	if has_dice():
 		sprite.texture = dice.texture
 	else:
 		sprite.texture = null
@@ -32,4 +32,8 @@ func remove_dice() -> void:
 
 func _on_set_button_pressed() -> void:
 	Events.slot_pressed.emit(self)
-	#set_dice(Game.current_dice)
+
+
+func has_dice() -> bool:
+	# diceがあるかどうか
+	return dice != null

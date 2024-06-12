@@ -1,9 +1,8 @@
 class_name Board extends Control
 
-@export var slots: Array[DiceSlot]
-
 @onready var grid: GridContainer = $GridContainer
-@onready var dice_slots_ui = grid.get_children() as Array[DiceSlot]
+
+var slots: Array
 
 
 func _ready() -> void:
@@ -18,3 +17,15 @@ func _ready() -> void:
 		slot = preload("res://dice_slot.tscn").instantiate()
 		grid.add_child(slot)
 		slot.update()
+	
+	# slotsに上の変更を反映
+	slots = grid.get_children()
+
+
+func is_full() -> bool:
+	
+	# slotsの全てがdiceを持つかどうか
+	return slots.all(
+		func(slot: DiceSlot) -> bool:
+			return slot.has_dice()
+	)

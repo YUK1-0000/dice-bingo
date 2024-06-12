@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl1027meapu0s"]
+[gd_scene load_steps=4 format=3 uid="uid://cl1027meapu0s"]
 
 [ext_resource type="PackedScene" uid="uid://c3jtvnpsjymku" path="res://board.tscn" id="1_w7fj0"]
 [ext_resource type="PackedScene" uid="uid://dhjth00cx2e1w" path="res://dice_slot.tscn" id="2_xlyyw"]
+[ext_resource type="PackedScene" uid="uid://dt2ioqsegesh5" path="res://menus.tscn" id="3_5ergg"]
 
 [node name="Main" type="Node"]
 
@@ -19,3 +20,5 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="Menus" parent="." instance=ExtResource("3_5ergg")]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2ioqsegesh5"]
+
+[ext_resource type="Script" path="res://menus.gd" id="1_a03xf"]
+[ext_resource type="PackedScene" uid="uid://dglnykirbkila" path="res://result_menu.tscn" id="2_yt1r1"]
+
+[node name="Menus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_a03xf")
+
+[node name="ResultMenu" parent="." instance=ExtResource("2_yt1r1")]
+visible = false
+layout_mode = 1
