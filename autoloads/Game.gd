@@ -17,7 +17,6 @@ var current_dice: Dice
 func _ready() -> void:
 	Events.turn_begin.connect(dice_roll)
 	Events.slot_pressed.connect(set_current_dice)
-	Events.dice_setted.connect(remove_current_dice)
 
 
 func _process(_delta: float) -> void:

@@ -4,7 +4,6 @@ class_name DiceSlot extends CenterContainer
 
 @onready var sprite = $Panel/Sprite2D as Sprite2D
 @onready var set_button = $SetButton as Button
-@onready var remove_button = $RemoveButton as Button
 
 
 func update() -> void:
@@ -15,12 +14,8 @@ func update() -> void:
 	else:
 		sprite.texture = null
 	
-	if dice:
-		set_button.visible = false
-		remove_button.visible = true
-	else:
-		set_button.visible = true
-		remove_button.visible = false
+	# diceがないときにボタンを可視化
+	set_button.visible = not dice
 
 
 func set_dice(dice_: Dice) -> void:
@@ -38,7 +33,3 @@ func remove_dice() -> void:
 func _on_set_button_pressed() -> void:
 	Events.slot_pressed.emit(self)
 	#set_dice(Game.current_dice)
-
-
-func _on_remove_button_pressed() -> void:
-	remove_dice()

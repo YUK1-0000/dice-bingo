@@ -12,15 +12,9 @@ script = ExtResource("1_82qep")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="RemoveButton" type="Button" parent="."]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-button_mask = 2
-
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
 
 [connection signal="pressed" from="SetButton" to="." method="_on_set_button_pressed"]
-[connection signal="pressed" from="RemoveButton" to="." method="_on_remove_button_pressed"]
