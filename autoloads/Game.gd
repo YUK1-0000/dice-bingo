@@ -1,10 +1,10 @@
 extends Node
 
 @onready var main: Node = get_tree().root.get_node("Main")
-@onready var menus = main.get_node("Menus") as Menus
 @onready var board = main.get_node("Board") as Board
 @onready var current_dice_slot = main.get_node("CurrentDiceSlot") as DiceSlot
 
+var is_started: bool
 var score: int
 var current_dice: Dice
 var dice: Array[Dice] = [
@@ -18,13 +18,16 @@ var dice: Array[Dice] = [
 
 
 func _ready() -> void:
+	Events.game_start.connect(func(): is_started = true)
 	Events.turn_begin.connect(dice_roll)
 	Events.slot_pressed.connect(set_current_dice)
 	Events.turn_end.connect(check_game_is_over)
+	Events.game_over.connect(game_over)
+	Events.game_reset.connect(game_reset)
 
 
 func _process(_delta: float) -> void:
-	if not current_dice:
+	if is_started and not current_dice:
 		Events.turn_begin.emit()
 
 
@@ -58,10 +61,15 @@ func update_score() -> void:
 
 func check_game_is_over() -> void:
 	if board.is_full():
-		game_over()
+		Events.game_over.emit()
 
 
 func game_over() -> void:
+	is_started = false
 	print("game over")
 	update_score()
-	menus.show_result_menu()
+
+
+func game_reset() -> void:
+	print("game reset")
+	board.clear_dice()

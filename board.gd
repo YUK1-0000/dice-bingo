@@ -29,3 +29,8 @@ func is_full() -> bool:
 		func(slot: DiceSlot) -> bool:
 			return slot.has_dice()
 	)
+
+
+func clear_dice() -> void:
+	for slot: DiceSlot in slots:
+		slot.remove_dice()
