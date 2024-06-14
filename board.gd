@@ -1,5 +1,7 @@
 class_name Board extends Control
 
+@export var length: int
+
 @onready var grid: GridContainer = $GridContainer
 
 var slots: Array
@@ -8,8 +10,8 @@ var slots: Array
 func _ready() -> void:
 	
 	# boardとgridの設定
-	slots.resize(25)
-	grid.columns = 5
+	slots.resize(length ** 2)
+	grid.columns = length
 	
 	# gridにDiseSlotの追加とアップデート
 	var slot: DiceSlot
@@ -34,3 +36,7 @@ func is_full() -> bool:
 func clear_dice() -> void:
 	for slot: DiceSlot in slots:
 		slot.remove_dice()
+
+
+func get_neighbors() -> void:
+	pass

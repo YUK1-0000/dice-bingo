@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uweq6")
+length = 3
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1

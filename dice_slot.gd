@@ -24,6 +24,11 @@ func set_dice(dice_: Dice) -> void:
 	update()
 
 
+func set_color(color: Color) -> void:
+	print("set color")
+	sprite.modulate = color
+
+
 func remove_dice() -> void:
 	print("remove dice")
 	dice = null
