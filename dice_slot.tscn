@@ -8,7 +8,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 script = ExtResource("1_82qep")
 
-[node name="SetButton" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
@@ -17,4 +17,4 @@ layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
 
-[connection signal="pressed" from="SetButton" to="." method="_on_set_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
