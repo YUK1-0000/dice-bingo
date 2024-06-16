@@ -4,12 +4,11 @@ class_name ResultMenu extends Control
 
 
 func  _ready() -> void:
-	Events.game_over.connect(show_)
-
-
-func show_() -> void:
-	show()
-	update()
+	Events.game_over.connect(
+		func() -> void:
+			show()
+			update()
+	)
 
 
 func update() -> void:
