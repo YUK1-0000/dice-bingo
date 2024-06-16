@@ -4,9 +4,9 @@ extends Node
 @onready var board = main.get_node("Board") as Board
 @onready var current_dice_slot = main.get_node("CurrentDiceSlot") as DiceSlot
 
-var is_started: bool
-var score: int
-var current_dice: Dice
+var is_started: bool = false
+var score: int = 0
+var current_dice: Dice = null
 var dice: Array[Dice] = [
 	preload("res://resources/dice/dice_1.tres"),
 	preload("res://resources/dice/dice_2.tres"),

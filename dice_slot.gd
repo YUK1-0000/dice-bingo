@@ -1,9 +1,11 @@
 class_name DiceSlot extends CenterContainer
 
-@export var dice: Dice
 
 @onready var sprite = $Panel/Sprite2D as Sprite2D
 @onready var set_button = $SetButton as Button
+
+var dice: Dice = null
+var coords: Vector2 = Vector2.ZERO
 
 
 func update() -> void:

@@ -1,10 +1,10 @@
 class_name Board extends Control
 
-@export var length: int
+@export var length: int = 0
 
-@onready var grid: GridContainer = $GridContainer
+@onready var grid = $GridContainer as GridContainer
 
-var slots: Array
+var slots: Array[DiceSlot] = []
 
 
 func _ready() -> void:
