@@ -13,10 +13,8 @@ func _ready() -> void:
 	grid.columns = length
 	
 	var slot: DiceSlot
-	
 	for y in length:
 		for x in length:
-			
 			slot = preload("res://dice_slot.tscn").instantiate()
 			slot.coords = Vector2(x, y)
 			grid.add_child(slot)
@@ -34,7 +32,6 @@ func is_full() -> bool:
 
 
 func clear_dice() -> void:
-	
 	for slot: DiceSlot in slots:
 		slot.remove_dice()
 
@@ -43,7 +40,6 @@ func clear_dice() -> void:
 func get_neighbors_slot_of(slot: DiceSlot) -> Array[DiceSlot]:
 	
 	var neighbors: Array[DiceSlot] = []
-	
 	for slot_: DiceSlot in slots:
 		
 		# slotとの距離が１のDiceSlotを戻り値に追加

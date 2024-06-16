@@ -24,7 +24,7 @@ var colors: Array[Color] = [
 
 func _ready() -> void:
 	Events.game_start.connect(func(): is_started = true)
-	Events.turn_begin.connect(dice_roll)
+	Events.turn_begin.connect(roll_dice)
 	Events.slot_pressed.connect(set_current_dice)
 	Events.turn_end.connect(turn_change)
 	Events.game_over.connect(game_over)
@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 		Events.turn_begin.emit()
 
 
-func dice_roll() -> void:
+func roll_dice() -> void:
 	print("dice roll")
 	current_dice = dice.pick_random()
 	current_dice_slot.set_dice(current_dice)
