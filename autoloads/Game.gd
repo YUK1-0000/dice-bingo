@@ -44,7 +44,7 @@ func dice_roll() -> void:
 
 
 func set_current_dice(slot: DiceSlot) -> void:
-	
+	print(board.get_neighbors_slot_of(slot).map(func(s: DiceSlot): return s.coords))
 	# クリックされたDiceSlotにcurrent_diceをセットして色を付けてターンエンド
 	slot.set_dice(current_dice)
 	slot.set_color(colors[player])
