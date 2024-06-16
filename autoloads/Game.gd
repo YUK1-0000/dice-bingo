@@ -25,8 +25,8 @@ var colors: Array[Color] = [
 func _ready() -> void:
 	Events.game_start.connect(func(): is_started = true)
 	Events.turn_begin.connect(roll_dice)
-	Events.slot_pressed.connect(set_current_dice)
-	Events.turn_end.connect(turn_change)
+	Events.slot_pressed.connect(on_slot_pressed)
+	Events.turn_end.connect(end_turn)
 	Events.game_over.connect(game_over)
 	Events.game_reset.connect(game_reset)
 
@@ -45,6 +45,7 @@ func roll_dice() -> void:
 
 func set_current_dice(slot: DiceSlot) -> void:
 	print(board.get_neighbors_slot_of(slot).map(func(s: DiceSlot): return s.coords))
+	
 	# クリックされたDiceSlotにcurrent_diceをセットして色を付けてターンエンド
 	slot.set_dice(current_dice)
 	slot.set_color(colors[player])
@@ -59,11 +60,17 @@ func remove_current_dice() -> void:
 
 func update_score() -> void:
 	print("update score")
+	
 	# boardのdiceのpipsの合計をscoreに代入
 	var tmp: int
 	for slot: DiceSlot in board.slots:
 		tmp += slot.dice.pips
 	score = tmp
+
+
+func on_slot_pressed(slot: DiceSlot) -> void:
+	if not slot.has_dice():
+		set_current_dice(slot)
 
 
 func end_turn() -> void:
