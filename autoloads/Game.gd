@@ -22,6 +22,7 @@ var colors: Array[Color] = [
 	Color.html("#FF5457")
 ]
 
+
 func _ready() -> void:
 	Events.game_start.connect(func(): is_started = true)
 	Events.turn_begin.connect(roll_dice)
