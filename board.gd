@@ -31,6 +31,49 @@ func is_full() -> bool:
 	)
 
 
+func get_bingo_slots() -> Array[Array]:
+	
+	var ret: Array[Array] = []
+	var tmp: Array[DiceSlot] = []
+	for i in length:
+		
+		# 垂直方向のビンゴの取得し、戻り値に追加
+		tmp = slots.filter(
+			func(slot: DiceSlot) -> bool:
+				return slot.coords.x == i and slot.has_dice()
+		)
+		if tmp.size() == length:
+			ret.append(tmp)
+		
+		# 水平方向のビンゴを取得し、戻り値に追加
+		tmp = slots.filter(
+			func(slot: DiceSlot) -> bool:
+				return slot.coords.y == i and slot.has_dice()
+		)
+		if tmp.size() == length:
+			ret.append(tmp)
+	
+	# 左上から右下方向のビンゴを取得し、戻り値に追加
+	tmp = slots.filter(
+		func(slot: DiceSlot) -> bool:
+			return slot.coords.x == slot.coords.y and slot.has_dice()
+	)
+	if tmp.size() == length:
+		ret.append(tmp)
+	
+	# 右上から左下方向のビンゴを取得し、戻り値に追加
+	tmp = slots.filter(
+		func(slot: DiceSlot) -> bool:
+			return slot.coords.x == length - 1 - slot.coords.y and slot.has_dice()
+	)
+	if tmp.size() == length:
+		ret.append(tmp)
+	
+	print("bingo: ", str(ret.size()))
+	print("bingo slots: ", ret)
+	return ret
+
+
 func clear_dice() -> void:
 	for slot: DiceSlot in slots:
 		slot.remove_dice()

@@ -4,7 +4,7 @@ class_name DiceSlot extends CenterContainer
 @onready var sprite = $Panel/Sprite2D as Sprite2D
 
 var dice: Dice = null
-var coords: Vector2 = Vector2.ZERO
+var coords := Vector2.ZERO
 
 
 func update() -> void:

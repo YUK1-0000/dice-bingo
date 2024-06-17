@@ -70,6 +70,7 @@ func on_slot_pressed(slot: DiceSlot) -> void:
 
 
 func end_turn() -> void:
+	board.get_bingo_slots() # テスト用
 	check_game_is_over()
 
 
