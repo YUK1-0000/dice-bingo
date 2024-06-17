@@ -5,7 +5,6 @@ extends Node
 @onready var current_dice_slot = main.get_node("CurrentDiceSlot") as DiceSlot
 
 var is_started := false
-var score: int = 0
 var current_dice: Dice = null
 var dice: Array[Dice] = [
 	preload("res://resources/dice/dice_1.tres"),
@@ -15,15 +14,6 @@ var dice: Array[Dice] = [
 	preload("res://resources/dice/dice_5.tres"),
 	preload("res://resources/dice/dice_6.tres")
 ]
-
-
-func _ready() -> void:
-	Events.game_start.connect(func(): is_started = true)
-	Events.turn_begin.connect(roll_dice)
-	Events.slot_pressed.connect(on_slot_pressed)
-	Events.turn_end.connect(end_turn)
-	Events.game_over.connect(game_over)
-	Events.game_reset.connect(game_reset)
 
 
 func _process(_delta: float) -> void:
@@ -54,24 +44,14 @@ func remove_current_dice() -> void:
 	current_dice_slot.remove_dice()
 
 
-func update_score() -> void:
-	print("update score")
-	
-	# boardのdiceのpipsの合計をscoreに代入
-	var tmp: int
-	for slot: DiceSlot in board.slots:
-		tmp += slot.dice.pips
-	score = tmp
-
-
-func on_slot_pressed(slot: DiceSlot) -> void:
-	if not slot.has_dice():
-		set_current_dice(slot)
-
-
 func end_turn() -> void:
-	board.get_bingo_slots() # テスト用
+	check_bingo()
 	check_game_is_over()
+
+
+func check_bingo() -> void:
+	if board.get_bingo_slots():
+		Events.get_bingo.emit()
 
 
 func check_game_is_over() -> void:
@@ -82,9 +62,14 @@ func check_game_is_over() -> void:
 func game_over() -> void:
 	is_started = false
 	print("game over")
-	update_score()
+	Score.update()
 
 
 func game_reset() -> void:
 	print("game reset")
 	board.clear_dice()
+
+
+func on_slot_pressed(slot: DiceSlot) -> void:
+	if not slot.has_dice():
+		set_current_dice(slot)

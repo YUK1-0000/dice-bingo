@@ -38,7 +38,7 @@ func get_bingo_slots() -> Array[Array]:
 	var slot_arrays: Array[Array] = []
 	
 	for i in length:
-		for f in [
+		for lambda in [
 			
 			# 垂直方向に並ぶスロットを示す関数
 			func(slot: DiceSlot) -> bool:
@@ -49,10 +49,10 @@ func get_bingo_slots() -> Array[Array]:
 				return slot.coords.y == i
 		]:
 			
-			# 関数fを満たすスロットの配列を追加
-			slot_arrays.append(slots.filter(f))
+			# ラムダ関数を満たすスロットの配列を追加
+			slot_arrays.append(slots.filter(lambda))
 	
-	for f in [
+	for lambda in [
 		
 		# 斜め（左上から右下）方向に並ぶスロットを示す関数
 		func(slot: DiceSlot) -> bool:
@@ -63,8 +63,8 @@ func get_bingo_slots() -> Array[Array]:
 			return slot.coords.x == length - 1 - slot.coords.y
 	]:
 		
-		# 関数fを満たすスロットの配列を追加
-		slot_arrays.append(slots.filter(f))
+		# ラムダ関数を満たすスロットの配列を追加
+		slot_arrays.append(slots.filter(lambda))
 	
 	# ダイスが全てのスロットにある配列のみ戻り値にする
 	var ret := slot_arrays.filter(
