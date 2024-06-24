@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl1027meapu0s"]
+[gd_scene load_steps=5 format=3 uid="uid://cl1027meapu0s"]
 
 [ext_resource type="PackedScene" uid="uid://c3jtvnpsjymku" path="res://board.tscn" id="1_w7fj0"]
 [ext_resource type="PackedScene" uid="uid://dhjth00cx2e1w" path="res://dice_slot.tscn" id="2_xlyyw"]
 [ext_resource type="PackedScene" uid="uid://dt2ioqsegesh5" path="res://menus.tscn" id="3_5ergg"]
+[ext_resource type="PackedScene" uid="uid://cps31fi2m2hp3" path="res://ui.tscn" id="4_j0asc"]
 
 [node name="Main" type="Node"]
 
+[node name="UI" parent="." instance=ExtResource("4_j0asc")]
+visible = false
+
 [node name="Board" parent="." instance=ExtResource("1_w7fj0")]
+length = 3
 
 [node name="CurrentDiceSlot" parent="." instance=ExtResource("2_xlyyw")]
 anchors_preset = 3

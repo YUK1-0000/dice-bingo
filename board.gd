@@ -75,7 +75,6 @@ func get_bingo_slots() -> Array[Array]:
 			)
 	)
 	print("bingo: ", str(ret.size()))
-	print("bingo slots: ", ret)
 	
 	return ret
 

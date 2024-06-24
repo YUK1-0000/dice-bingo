@@ -4,11 +4,11 @@ signal game_start
 signal turn_begin
 signal slot_pressed(slot: DiceSlot)
 signal turn_end
-signal get_bingo
+signal get_bingo(slots: Array[DiceSlot])
 signal game_over
 signal game_reset
 
-signal get_score(score: int)
+signal score_updated
 
 
 func _ready() -> void:

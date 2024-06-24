@@ -13,7 +13,7 @@ func  _ready() -> void:
 
 func update() -> void:
 	print("result menu update")
-	score_label.text = str(Score.score)
+	score_label.text = str(Game.score)
 
 
 func _on_continue_button_pressed() -> void:
